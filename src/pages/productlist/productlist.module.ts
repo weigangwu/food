@@ -10,4 +10,4 @@ import { ProductlistPage } from './productlist';
     IonicPageModule.forChild(ProductlistPage),
   ],
 })
-export class ProductlistPageModule {}
+export class ProductlistPageModule { }

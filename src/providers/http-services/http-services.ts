@@ -23,8 +23,7 @@ export class HttpServicesProvider {
   // apiUrl：api/focus   用&拼接callback
   // apiUrl：api/plist?page=1   用?拼接callback
 
-  ruquestData(apiUrl, callback) {
-    //                      ↓ ==-1表示不存在问号
+  requestData(apiUrl, callback) {
     let api;
     if (apiUrl.indexOf('?') == -1) {
       api = this.Config.apiUrl + apiUrl + '?callback=JSONP_CALLBACK'  /*  没有问号 */
@@ -32,12 +31,10 @@ export class HttpServicesProvider {
       api = this.Config.apiUrl + apiUrl + '&callback=JSONP_CALLBACK'  /*   有问号  */
       // http://39.108.159.135/  +  paid/plist?is_best=1  +  &callback=JSONP_CALLBACK
     }
-    //              ↓ api是config的地址前缀+上apiUrl传过来的参数+上是否回调
+    // api是config的地址前缀+上apiUrl传过来的参数+上是否回调
     this.jsonp.get(api).subscribe(function (data) {
       // console.log(data);
-
       callback(data['_body']);        /*回调函数*/
-
     }, function (err) {
       console.log(err);
     })
@@ -52,9 +49,5 @@ export class HttpServicesProvider {
       .subscribe(function (res) {
         callback(res.json())
       });
-
-
   }
-
-
 }

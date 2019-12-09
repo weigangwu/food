@@ -46,7 +46,7 @@ export class PcontentPage {
   requestData(id){
     //http://39.108.159.135/api/pcontent?id=59f6a2d27ac40b223cfdcf81
     var api='api/pcontent?id='+id
-    this.httpservices.ruquestData(api,(data)=>{
+    this.httpservices.requestData(api,(data)=>{
       // console.log(data);
 
       this.item=data.result;

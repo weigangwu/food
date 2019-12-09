@@ -70,7 +70,7 @@ export class HomePage {
 
   goFocus(){
     var that=this;
-    this.httpservices.ruquestData('api/focus',function(data){
+    this.httpservices.requestData('api/focus',function(data){
       // console.log(data);
       that.focusList=data.result;
     })
@@ -78,7 +78,7 @@ export class HomePage {
 
   getBestProduct(){
                                      /* ↓是api接口 */
-    this.httpservices.ruquestData('api/plist?is_best=1',(data)=>{
+    this.httpservices.requestData('api/plist?is_best=1',(data)=>{
       // console.log(data);
       this.bestList=data.result;
       this.bestListWidth=this.bestList.length*500+'px';     /* 总宽度 */
@@ -87,7 +87,7 @@ export class HomePage {
   gethotProduct(){
     // 地址:http:/39.108.159.135/api/plist?is_hot=1
                                      /* ↓是api接口 */
-    this.httpservices.ruquestData('api/plist?is_hot=1',(data)=>{
+    this.httpservices.requestData('api/plist?is_hot=1',(data)=>{
       // console.log(data);
       this.hotList=data.result;
     })

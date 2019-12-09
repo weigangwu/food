@@ -73,7 +73,7 @@ export class OrdersPage {
 
     // 请求数据
     let api='api/oneAddressList?uid='+userinfo['_id']+'&sign='+sign;
-    this.httpService.ruquestData(api,(data)=>{
+    this.httpService.requestData(api,(data)=>{
       console.log(data)
       if (data.suceess=true) {
         console.log(data.result)

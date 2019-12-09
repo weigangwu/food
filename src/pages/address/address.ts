@@ -56,7 +56,7 @@ export class AddressPage {
     // 请求数据
     var api='api/addressList?uid='+userinfo._id+'&sign='+sign;
    
-    this.httpservices.ruquestData(api,(data)=>{
+    this.httpservices.requestData(api,(data)=>{
       console.log(data);
       // console.log(api+"这是api的数据");
         if (data.success) {

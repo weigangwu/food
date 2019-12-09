@@ -5,7 +5,6 @@ import { HttpServicesProvider } from '../../providers/http-services/http-service
 import { AlertController } from 'ionic-angular';
 import { StorageProvider  } from "../../providers/storage/storage";
 import { Content } from 'ionic-angular';
-import { isRightSide } from 'ionic-angular/umd/util/util';
 /**
  * Generated class for the SearchPage page.
  *
@@ -61,7 +60,7 @@ export class SearchPage {
     // console.log(this.keywords) /* 检测是否触发 */
 
     var api ='api/plist?search='+this.keywords+'&page'+this.page;
-    this.httpService.ruquestData(api,(data)=>{
+    this.httpService.requestData(api,(data)=>{
       // console.log(data);
       if (this.page==1) { /* 第一页 替换数据 */
         this.list=data.result;

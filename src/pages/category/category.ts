@@ -56,7 +56,7 @@ export class CategoryPage {
   // 左侧分类的方法
   getLeftCateData(){
     var api='api/pcate';
-    this.httpservices.ruquestData(api,(data)=>{
+    this.httpservices.requestData(api,(data)=>{
     console.log(data);
     this.leftcate=data.result;
 
@@ -67,7 +67,7 @@ export class CategoryPage {
   // 右侧分类的方法
   getRightCateData(pid){
     var api='api/pcate?pid='+pid;
-    this.httpservices.ruquestData(api,(data)=>{
+    this.httpservices.requestData(api,(data)=>{
     console.log(data);
     this.rightcate=data.result;
     })
