@@ -14,27 +14,27 @@
 
 
 <ion-content padding>
-  
-    <ion-item>
-        <ion-label>
-        <ion-icon name="person" start color="primary"></ion-icon>
-        </ion-label>
-        <ion-input type="string" placeholder="用户名/手机号/邮箱" [(ngModel)]="userinfo.username"></ion-input>
-     </ion-item>
-    <ion-item>
-        <ion-label>
-        <ion-icon name="lock" start color="primary"></ion-icon>
-        </ion-label>
-        <ion-input type="password" placeholder="密码" [(ngModel)]="userinfo.password"></ion-input>
-     </ion-item>
-     
-     <ion-item no-lines class="list-end">
-        <span item-start [navPush]="RegisterPage">手机快速注册</span>
-        <span item-end class="forgrt">忘记密码?</span>
-     </ion-item>
 
-     <button ion-button  block class="login-btn1" (click)="doLogin()" >登录</button>
-<!-- <div class="wrap">
+  <ion-item>
+    <ion-label>
+      <ion-icon name="person" start color="primary"></ion-icon>
+    </ion-label>
+    <ion-input type="string" placeholder="用户名/手机号/邮箱" [(ngModel)]="userInfo.account_no"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      <ion-icon name="lock" start color="primary"></ion-icon>
+    </ion-label>
+    <ion-input type="password" placeholder="密码" [(ngModel)]="userInfo.password"></ion-input>
+  </ion-item>
+
+  <ion-item no-lines class="list-end">
+    <!-- <span item-start [navPush]="RegisterPage">手机快速注册</span> -->
+    <span item-end class="forgrt">忘记密码?</span>
+  </ion-item>
+
+  <button ion-button block class="login-btn1" (click)="doLogin()">登录</button>
+  <!-- <div class="wrap">
 
      <div class="remember-btn">
       <input type="checkbox" value="true" checked="checked" name="session[remember_me]" id="session_remember_me"><span>记住我</span>

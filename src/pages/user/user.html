@@ -15,7 +15,7 @@
 
 <ion-content>
 
-  <div class="login" *ngIf="!userinfo" >
+  <div class="login" *ngIf="!userInfo" >
     <div class="usering">
         <img src="../../assets/imgs/pc5.jpg" />
     </div>
@@ -27,12 +27,12 @@
 
   </div>
 
-  <ion-list *ngIf="userinfo" >
+  <ion-list *ngIf="userInfo" >
     <ion-item [navPush]="PersonalPage">
         <ion-avatar item-start>
           <img src="../../assets/imgs/pc19.jpg">
         </ion-avatar>
-        <h2>用户名:{{userinfo.username}}</h2>
+        <h2>用户名:{{userInfo.username}}</h2>
         <p>璀璨钻石</p>
         <ion-icon name="ios-arrow-forward" item-end></ion-icon>
     </ion-item>
@@ -41,7 +41,7 @@
 
   <ion-list inset >
       <ion-item-divider></ion-item-divider>
-      <ion-item color="light">
+      <ion-item color="light" [navPush]="OrdersPage">
           <ion-icon name="list" item-start></ion-icon>
             <span>我的订单</span>
           <ion-icon name="ios-paper-outline" item-end></ion-icon>

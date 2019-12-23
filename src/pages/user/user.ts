@@ -6,6 +6,8 @@ import { RegisterPage } from '../register/register';
 import { PersonalPage } from "../personal/personal";
 import { HttpServicesProvider } from "../../providers/http-services/http-services";
 import { StorageProvider } from "../../providers/storage/storage";
+import { OrdersPage } from '../orders/orders';
+import { ToolsProvider } from '../../providers/tools/tools';
 
 /**
  * Generated class for the UserPage page.
@@ -20,30 +22,28 @@ import { StorageProvider } from "../../providers/storage/storage";
   templateUrl: 'user.html',
 })
 export class UserPage {
-  public LoginPage=LoginPage;
-  public Register2Page=Register2Page;
-  public RegisterPage=RegisterPage;
-  public PersonalPage=PersonalPage;
+  public LoginPage = LoginPage;
+  public Register2Page = Register2Page;
+  public RegisterPage = RegisterPage;
+  public PersonalPage = PersonalPage;
+  public OrdersPage = OrdersPage;
   // public isLogin=false;
-  public userinfo='';
+  public userInfo = '';
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public storage:StorageProvider,
-              public httpservices:HttpServicesProvider,) {
+    public navParams: NavParams,
+    public storage: StorageProvider,
+    public httpservices: HttpServicesProvider,
+    private toolsProvider: ToolsProvider
+  ) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
   }
-  ionViewWillEnter(){
-   var userinfo=this.storage.get("userinfo");
-     if (userinfo&&userinfo.username) {  /* 如果已经登录 */
-
-       this.userinfo=userinfo;
-     } else{
-      this.userinfo='';
-     }
-   
-  }
   
+  ionViewDidEnter() {
+    this.userInfo = this.toolsProvider.getUserInfo();
+  }
+
 }

@@ -40,6 +40,7 @@ import { ConfigProvider } from '../providers/config/config';
 import { HttpServicesProvider } from '../providers/http-services/http-services';
 import { StorageProvider } from '../providers/storage/storage';
 import { ToolsProvider } from '../providers/tools/tools';
+import { LoginPageModule } from '../pages/login/login.module';
 
 
 @NgModule({
@@ -50,7 +51,6 @@ import { ToolsProvider } from '../providers/tools/tools';
     HomePage,
     TabsPage,
     UserPage,
-    LoginPage,
     Register2Page,
     RegisterPage,
     RegisterpasswordPage,
@@ -71,6 +71,7 @@ import { ToolsProvider } from '../providers/tools/tools';
     BrowserModule,
     HttpModule,
     JsonpModule,
+    LoginPageModule,
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages:'true',
       backButtonText:'',
@@ -84,7 +85,6 @@ import { ToolsProvider } from '../providers/tools/tools';
     HomePage,
     TabsPage,
     UserPage,
-    LoginPage,
     Register2Page,
     RegisterPage,
     RegisterpasswordPage,

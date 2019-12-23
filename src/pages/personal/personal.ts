@@ -14,29 +14,22 @@ import { StorageProvider } from '../../providers/storage/storage';
   templateUrl: 'personal.html',
 })
 export class PersonalPage {
- 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageProvider) {
-  
-
-    
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public storage: StorageProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonalPage');
   }
 
 
-  loginOut(){
-
+  loginOut() {
     //用户信息保存在localstorage
-
-
-    this.storage.remove('userinfo');
-
+    this.storage.remove('userInfo');
     //跳转到用户中心
-
     this.navCtrl.popToRoot();
-
   }
 }

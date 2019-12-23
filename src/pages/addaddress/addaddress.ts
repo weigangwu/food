@@ -22,58 +22,58 @@ export class AddaddressPage {
   //   address:any,
 
   // }
-  public addressList={
-    name:'',
-    phone:'', 
-    address:'',
+  public addressList = {
+    name: '',
+    phone: '',
+    address: '',
 
   }
   constructor(public navCtrl: NavController,
-     public navParams: NavParams,
-     public tools:ToolsProvider,
-     public Config:ConfigProvider,
-     public httpservices:HttpServicesProvider,) {
+    public navParams: NavParams,
+    public tools: ToolsProvider,
+    public Config: ConfigProvider,
+    public httpservices: HttpServicesProvider, ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddaddressPage');
   }
 
-  addAddress(){
-    if (this.addressList.name!=''||this.addressList.phone!=''||this.addressList.address!='') {
-      
-    
-        // 获取表单的内容
-        let userinfo = this.tools.getUserInfo();
+  addAddress() {
+    if (this.addressList.name != '' || this.addressList.phone != '' || this.addressList.address != '') {
 
-        let json={
-          uid:userinfo._id,
-          salt:userinfo.salt,
-          name:this.addressList.name,
-          phone:this.addressList.phone,
-          address:this.addressList.address,
 
-        }
+      // 获取表单的内容
+      let userInfo = this.tools.getUserInfo();
 
-        let sign = this.tools.sign(json);  /* 生成签名 */
+      let json = {
+        uid: userInfo._id,
+        salt: userInfo.salt,
+        name: this.addressList.name,
+        phone: this.addressList.phone,
+        address: this.addressList.address,
 
-          var api='api/addAddress'
-          this.httpservices.doPost(api,{
-            uid:userinfo._id,
-            sign:sign,
-            name:this.addressList.name,
-            phone:this.addressList.phone,
-            address:this.addressList.address,
-          },(data)=>{
-              // console.log(data);
-              if (data.success) {
-                this.navCtrl.pop();
-              } else {
-                alert(data.message);
-              }
-          })
-      }else{
-          alert("错误")
       }
+
+      let sign = this.tools.sign(json);  /* 生成签名 */
+
+      var api = 'api/addAddress'
+      this.httpservices.doPost(api, {
+        uid: userInfo._id,
+        sign: sign,
+        name: this.addressList.name,
+        phone: this.addressList.phone,
+        address: this.addressList.address,
+      }).then((data) => {
+        // console.log(data);
+        if (data.success) {
+          this.navCtrl.pop();
+        } else {
+          alert(data.message);
+        }
+      })
+    } else {
+      alert("错误")
+    }
   }
 }

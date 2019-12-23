@@ -28,7 +28,7 @@
     </div>
 
     <ion-list inset>
-      <ion-item *ngFor="let item of list">
+      <ion-item *ngFor="let item of list" [navPush]="PcontentPage" [navParams]="{'id':item['_id']}">
         <ion-thumbnail item-left>
           <img [src]="config.apiUrl+item.s_pic">
         </ion-thumbnail>

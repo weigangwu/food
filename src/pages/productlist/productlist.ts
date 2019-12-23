@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpServicesProvider } from '../../providers/http-services/http-services';
 import { ConfigProvider } from '../../providers/config/config';
+import { PcontentPage } from '../pcontent/pcontent';
 /**
  * Generated class for the ProductlistPage page.
  *
@@ -18,6 +19,7 @@ export class ProductlistPage {
   public list = [];
   public cid = '';/* 获取空id */
   public page = 1;/*  分页 */
+  public  PcontentPage= PcontentPage;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public httpService: HttpServicesProvider,
@@ -64,8 +66,11 @@ export class ProductlistPage {
 
   // 加载更多
   doloadmore(infiniteScroll) {
-    this.getProductList(infiniteScroll)
+    this.getProductList(infiniteScroll);
   }
 
+  productItemClick(item) {
+    console.log(item);
+  }
 
 }

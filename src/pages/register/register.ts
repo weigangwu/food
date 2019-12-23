@@ -19,36 +19,36 @@ import { CeshiPage } from "../ceshi/ceshi";
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  public tel='';
-  public CeshiPage=CeshiPage;
+  public tel = '';
+  public CeshiPage = CeshiPage;
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public httpservices:HttpServicesProvider,
-              public storage:StorageProvider) {
+    public navParams: NavParams,
+    public httpservices: HttpServicesProvider,
+    public storage: StorageProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  goRegistersignPage(){
+  goRegistersignPage() {
     // this.navCtrl.push(RegistersignPage)
     console.log(this.tel)
 
-        if(/^\d{11}$/.test(this.tel)){
+    if (/^\d{11}$/.test(this.tel)) {
 
-          var api='api/sendCode'
-          this.httpservices.doPost(api,{"tel":this.tel},(result)=>{
-            console.log(result)/* 测试 */
-            this.storage.set('reg_tel',this.tel);  /* 保存电话号码 */
-            if(result.success){  /* 判断如果成功就跳转到下个界面  验证验证码*/
-              this.navCtrl.push(RegistersignPage)
-            }else{
-              alert("发送失败 "+result.message)
-            }
-          })
-        }else{
-          alert("请输入正确的电话号码!")
+      var api = 'api/sendCode'
+      this.httpservices.doPost(api, { "tel": this.tel }).then((result) => {
+        console.log(result)/* 测试 */
+        this.storage.set('reg_tel', this.tel);  /* 保存电话号码 */
+        if (result.success) {  /* 判断如果成功就跳转到下个界面  验证验证码*/
+          this.navCtrl.push(RegistersignPage)
+        } else {
+          alert("发送失败 " + result.message)
         }
+      })
+    } else {
+      alert("请输入正确的电话号码!")
+    }
   }
 }

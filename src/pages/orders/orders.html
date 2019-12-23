@@ -17,7 +17,7 @@
     <div class="order">
         <div class="address_list">
 
-          <ion-list *ngIf="userinfo && !address">
+          <ion-list *ngIf="userInfo && !address">
               <ion-item [navPush]='AddressPage'>
                   <ion-icon name="ios-pin-outline" item-start></ion-icon>
 
@@ -28,7 +28,7 @@
           </ion-list>
 
 
-          <ion-list *ngIf="userinfo && address">
+          <ion-list *ngIf="userInfo && address">
             <ion-item [navPush]='AddressPage'>
                 <h2>{{address.name}}   {{address.phone}}</h2>
                 <p>{{address.address}}</p>
@@ -38,7 +38,7 @@
 
 
 
-          <ion-list *ngIf="!userinfo">
+          <ion-list *ngIf="!userInfo">
               <ion-item class="nologin">                
                   <p>您还没有登录，登录后同步您的订单信息...</p>
                   <button ion-button color="light"  [navPush]='LoginPage' [navParams]="{history:'order'}">登录</button>
